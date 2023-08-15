@@ -43,9 +43,9 @@ class App {
       this.style.display = "flex";
     });
 
-    this.$colorTooltip.addEventListener("mouseout", (event) => {
-      this.style.display = "none";
-    });
+    // this.$colorTooltip.addEventListener("mouseout", (event) => {
+    //   this.style.display = "none";
+    // });
 
     this.$colorTooltip.addEventListener("click", (event) => {
       const color = event.target.dataset.color;
