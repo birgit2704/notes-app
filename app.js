@@ -15,7 +15,8 @@ class App {
     this.$modal = document.querySelector(".modal");
     this.$modalTitle = document.querySelector(".modal-title");
     this.$modalText = document.querySelector(".modal-text");
-    this.$modalCloseBtn = document.querySelector(".modal-close-button");
+    this.$formCloseButton = document.querySelector("#form-close-button");
+    this.$modalCloseButton = document.querySelector(".modal-close-button");
     this.$colorTooltip = document.querySelector("#color-tooltip");
 
     this.render();
@@ -42,9 +43,9 @@ class App {
       this.style.display = "flex";
     });
 
-    // this.$colorTooltip.addEventListener("mouseout", (event) => {
-    //   this.style.display = "none";
-    // });
+    this.$colorTooltip.addEventListener("mouseout", (event) => {
+      this.style.display = "none";
+    });
 
     this.$colorTooltip.addEventListener("click", (event) => {
       const color = event.target.dataset.color;
@@ -64,12 +65,13 @@ class App {
       }
     });
 
-    this.$colorTooltip.addEventListener("mouseover", function () {
-      this.style.display = "flex";
+    this.$formCloseButton.addEventListener("click", (event) => {
+      event.stopPropagation();
+      this.closeForm();
     });
 
-    this.$colorTooltip.addEventListener("mouseout", function () {
-      this.style.display = "none";
+    this.$modalCloseButton.addEventListener("click", (event) => {
+      this.closeModal(event);
     });
   }
 
